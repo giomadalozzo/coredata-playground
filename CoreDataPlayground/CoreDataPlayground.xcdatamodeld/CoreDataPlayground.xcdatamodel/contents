@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Major" representedClassName="Major" syncable="YES" codeGenerationType="class">
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="playerWon" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="majorWon" inverseEntity="Player"/>
+    </entity>
+    <entity name="Player" representedClassName="Player" syncable="YES" codeGenerationType="class">
+        <attribute name="nationality" optional="YES" attributeType="String"/>
+        <attribute name="nick" optional="YES" attributeType="String"/>
+        <attribute name="yearBorn" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="acutalTeam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="players" inverseEntity="Team"/>
+        <relationship name="majorWon" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Major" inverseName="playerWon" inverseEntity="Major"/>
+    </entity>
+    <entity name="Team" representedClassName="Team" syncable="YES" codeGenerationType="class">
+        <attribute name="hltvRank" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="nationality" optional="YES" attributeType="String"/>
+        <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="acutalTeam" inverseEntity="Player"/>
+    </entity>
+    <elements>
+        <element name="Player" positionX="-203.7019653320312" positionY="-113.5061950683594" width="128" height="118"/>
+        <element name="Team" positionX="145.4671020507812" positionY="-145.1615600585938" width="128" height="103"/>
+        <element name="Major" positionX="382.3636474609375" positionY="-20.718017578125" width="128" height="103"/>
+    </elements>
+</model>
